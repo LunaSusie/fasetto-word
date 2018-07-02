@@ -1,26 +1,23 @@
-﻿
-<!--
-这两句设置windows为空
-WindowStyle="None"
-AllowsTransparency="True"
- WindowStartupLocation="CenterScreen"
--->
-<Window x:Class="fasetto_word.MainWindow"
+﻿<Window x:Class="fasetto_word.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomWindowAndStyles"
         xmlns:fasettoWord="clr-namespace:fasetto_word"
+        xmlns:valueConverters="clr-namespace:fasetto_word.Infrastructure.ValueConverters"
         mc:Ignorable="d"
         x:Name="AppWindwo"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}"
         Title="Welcome Friends" Height="600" Width="900">
-    
+    <!--window样式-->
     <Window.Resources>
         <Style TargetType="{x:Type fasettoWord:MainWindow}">
+           
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
@@ -28,7 +25,7 @@ AllowsTransparency="True"
                         <Border Padding="{Binding OuterMarginThickness,FallbackValue=10}">
                             <!--main window outline-->
                             <Grid>
-                                <!-- Opacity mask for corners on grid -->
+                                 <!--Opacity mask for corners on grid--> 
                                 <Border x:Name="Container" Background="{StaticResource BackgroundLightBrush}" CornerRadius="{Binding WindwoCornerRadius,FallbackValue=10}"/>
                                 <!--main window border-->
                                 <Border CornerRadius="{Binding WindwoCornerRadius,FallbackValue=10}" 
@@ -39,7 +36,7 @@ AllowsTransparency="True"
                                 </Border>
                                 <!--main window content-->
                                 <Grid>
-                                    <!-- Corner clipping -->
+                                     <!--Corner clipping--> 
                                     <Grid.OpacityMask>
                                         <VisualBrush Visual="{Binding ElementName=Container}" />
                                     </Grid.OpacityMask>
@@ -67,11 +64,19 @@ AllowsTransparency="True"
 
                                         <!--icon-->
                                         <Button  Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
-                                            <Image Source="Rescources/Images/logo-small.png"/>
+                                            <Image Source="Rescources/Images/Logo/logo-small.png"/>
                                         </Button>
                                         <!--Caption-->
-                                        <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeadText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Title,FallbackValue='Welcome Friend'}"/>
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3"  Margin="5">
+                                          <StackPanel>
+                                              <TextBlock FontFamily="{StaticResource LoatBold}" FontSize="{StaticResource FontSizeRegular}" Margin="0,0,0,-5">
+                                                  <Run Text="W" Foreground="{StaticResource WordOrangeBrush}"/>
+                                                  <Run Text="O" Foreground="{StaticResource WordBuleBrush}"/>
+                                                  <Run Text="R" Foreground="{StaticResource WordRedBrush}"/>
+                                                  <Run Text="D" Foreground="{StaticResource WordGreenBrush}"/>
+                                              </TextBlock>
+                                            <TextBlock Text="by fasetto" Foreground="{StaticResource ForegroundDarkBrush}"/>
+                                          </StackPanel>
                                         </Viewbox>
                                         <!--windwo button-->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
@@ -81,28 +86,10 @@ AllowsTransparency="True"
                                         </StackPanel>
                                     </Grid>
 
-                                    <!-- Drop shadow -->
-                                    <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
-                                        <Border.BorderBrush>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="0.0"></GradientStop>
-                                                <GradientStop Color="{StaticResource ForegroundMain}" Offset="0.5"></GradientStop>
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0"></GradientStop>
-                                            </LinearGradientBrush>
-                                        </Border.BorderBrush>
-                                        <Border.Background>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
-                                                <GradientStop Color="{StaticResource BackgroundVeryLight}" Offset="0.0" />
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0" />
-                                            </LinearGradientBrush>
-                                        </Border.Background>
-                                    </Border>
-
-                                    <!-- Page Content -->
+                                     <!--Page Content-->
                                     <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
-
                                 </Grid>
                             </Grid>
                         </Border>
@@ -112,14 +99,16 @@ AllowsTransparency="True"
         </Style>
     </Window.Resources>
 
+    <!--windowChrome 定义resize-->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" 
                       CaptionHeight="{Binding CaptionHeight}"
                       CornerRadius="0"
-                      GlassFrameThickness="0"/>
+                      GlassFrameThickness="-1"/>
+
     </WindowChrome.WindowChrome>
     
     <Grid Background="Red">
-        <Button Content="test"></Button>
+        <Frame x:Name="MainFram" Content="{Binding CurrentPage,Converter={valueConverters:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>

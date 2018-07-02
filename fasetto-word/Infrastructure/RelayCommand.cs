@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace CustomWindowAndStyles.ViewModel.Command
+namespace fasetto_word.Infrastructure
 {
     /// <summary>
     /// a base command that runs a action.

@@ -54,10 +54,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\AttachedProperties\PasswordBoxProperies.cs" />
+    <Compile Include="Infrastructure\BaseAttachedProperty.cs" />
+    <Compile Include="Infrastructure\BaseValueConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\BooleanToVisiblityConverter.cs" />
+    <Compile Include="Infrastructure\WindowResizer.cs" />
+    <Compile Include="Models\ApplicationPage.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Base\RelayCommand.cs" />
+    <Compile Include="Infrastructure\BaseViewModel.cs" />
+    <Compile Include="Infrastructure\RelayCommand.cs" />
+    <Compile Include="Infrastructure\ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
+    <Compile Include="Views\Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +99,10 @@
     <Page Include="Rescources\Styles\Windows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -137,9 +151,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Rescources\Images\icon.ico" />
-    <Resource Include="Rescources\Images\logo-small.png" />
-    <Resource Include="Rescources\Images\logo.png" />
+    <Resource Include="Rescources\Images\Logo\icon.ico" />
+    <Resource Include="Rescources\Images\Logo\logo-small.png" />
+    <Resource Include="Rescources\Images\Logo\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rescources\Images\Background\emoji-background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,22 +1,29 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CustomWindowAndStyles.Styles">
-    <FontFamily x:Key="LoatRegular">pack://application;,,,/Rescources/Fonts/#Loat Regular</FontFamily>
-    <FontFamily x:Key="LoatThin">pack://application;,,,/Rescources/Fonts/#Loat Thin</FontFamily>
+                    xmlns:local="clr-namespace:CustomWindowAndStyles.Styles"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <FontFamily x:Key="LoatRegular">pack://application;,,,/Rescources/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LoatThin">pack://application;,,,/Rescources/Fonts/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LoatBold">pack://application;,,,/Rescources/Fonts/#Lato Bold</FontFamily>
 
-    
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LoatThin}"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource LoatThin}"/>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LoatThin}"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource LoatThin}"/>
     </Style>
 
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"/>
-    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
-    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"/>
  
 
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
+
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"/>
+
+
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
+    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeLagrge">30</system:Double>
 </ResourceDictionary>

@@ -5,11 +5,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          <ResourceDictionary>
-             <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="Rescources/Styles/Buttons.xaml"></ResourceDictionary>
-                 <ResourceDictionary Source="Rescources/Styles/Colors.xaml"></ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Rescources/Styles/Colors.xaml"></ResourceDictionary>
                  <ResourceDictionary Source="Rescources/Styles/Fonts.xaml"></ResourceDictionary>
                  <ResourceDictionary Source="Rescources/Styles/Texts.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Rescources/Styles/Buttons.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Rescources/Styles/Windows.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>

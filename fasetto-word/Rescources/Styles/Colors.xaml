@@ -11,11 +11,25 @@
     <Color x:Key="ForegroundMain">#686868</Color>
     <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
 
+    <Color x:Key="ForegroundDark">#dbdbdb</Color>
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
+
     <Color x:Key="ForegroundVeryDark">#0000</Color>
     <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
 
     <Color x:Key="ForegroundLight">#ffffff</Color>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
 
+    <Color x:Key="WordBule">#3099c5</Color>
+    <SolidColorBrush x:Key="WordBuleBrush" Color="{StaticResource WordBule}"/>
+
+    <Color x:Key="WordOrange">#ffa800</Color>
+    <SolidColorBrush x:Key="WordOrangeBrush" Color="{StaticResource WordOrange}"/>
+
+    <Color x:Key="WordRed">#ff4747</Color>
+    <SolidColorBrush x:Key="WordRedBrush" Color="{StaticResource WordRed}"/>
+
+    <Color x:Key="WordGreen">#00c542</Color>
+    <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
 
 </ResourceDictionary>

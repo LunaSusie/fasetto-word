@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using fasetto_word.Annotations;
 
-namespace fasetto_word.ViewModel.Base
+namespace fasetto_word.Infrastructure
 {
     public class BaseViewModel:INotifyPropertyChanged
     {
