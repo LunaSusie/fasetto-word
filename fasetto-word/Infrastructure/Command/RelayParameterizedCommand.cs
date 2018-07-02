@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace fasetto_word.Infrastructure
+namespace fasetto_word.Infrastructure.Command
 {
     /// <summary>
     /// a base command that runs a action.
     /// </summary>
-    public class RelayCommand : ICommand
+    public class RelayParameterizedCommand : ICommand
     {
 
         #region private members
         /// <summary>
         /// the action to run.
         /// </summary>
-        private readonly Action _action;
+        private readonly Action<object> _action;
 
         #endregion
 
         #region construct 
-        public RelayCommand(Action action)
+        public RelayParameterizedCommand(Action<object> action)
         {
             _action = action;
         }
@@ -29,7 +29,7 @@ namespace fasetto_word.Infrastructure
         /// <summary>
         /// The event that's fired when the <see cref="CanExecute(object)"/> value has changed.
         /// </summary>
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged=(sender,e)=> {};
         #endregion
 
         /// <summary>
@@ -45,9 +45,7 @@ namespace fasetto_word.Infrastructure
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            _action.Invoke();
+            _action.Invoke(parameter);
         }
-
-
     }
 }

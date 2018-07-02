@@ -41,7 +41,8 @@ namespace fasetto_word.Infrastructure
         #endregion
 
         #region Attached Property Definitions
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", typeof(TProperty), typeof(BaseAttachedProperty<TParent, TProperty>), new UIPropertyMetadata(OnValuePropertyChanged));
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", typeof(TProperty), typeof(BaseAttachedProperty<TParent, TProperty>), new UIPropertyMetadata(default(TProperty),
+            new PropertyChangedCallback(OnValuePropertyChanged)));
       
         /// <summary>
         /// callback event when <see cref="ValueProperty"/> is changed

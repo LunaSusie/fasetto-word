@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using fasetto_word.Infrastructure;
+using fasetto_word.Infrastructure.Command;
 using fasetto_word.Models;
 
 namespace fasetto_word.ViewModel

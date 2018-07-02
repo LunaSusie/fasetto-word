@@ -1,11 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CustomWindowAndStyles.Styles"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <FontFamily x:Key="LoatRegular">pack://application;,,,/Rescources/Fonts/#Lato Regular</FontFamily>
     <FontFamily x:Key="LoatThin">pack://application;,,,/Rescources/Fonts/#Lato Thin</FontFamily>
     <FontFamily x:Key="LoatBold">pack://application;,,,/Rescources/Fonts/#Lato Bold</FontFamily>
-
+    <FontFamily x:Key="FontAwesome">pack://application;,,,/Rescources/Fonts/#FontAwesome</FontFamily>
+ 
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource LoatThin}"/>
     </Style>

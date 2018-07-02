@@ -8,7 +8,11 @@ namespace fasetto_word.Infrastructure.ValueConverters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? Visibility.Hidden : Visibility.Visible;
+            //the paramenter is come from converterParmeter ,set in xmal
+            if (parameter==null)
+            return value != null && (bool)value ? Visibility.Hidden : Visibility.Visible;
+            else
+            return value != null && (bool)value ? Visibility.Visible : Visibility.Hidden;
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

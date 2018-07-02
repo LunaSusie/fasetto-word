@@ -7,10 +7,17 @@ using fasetto_word.Infrastructure.Animation;
 
 namespace fasetto_word.Infrastructure
 {
-    public class BasePage:Page
+    public class BasePage<TViewModl> :Page where TViewModl:BaseViewModel,new()
     {
 
+        #region Private Member
+
+        private TViewModl _viewModel;
+
+        #endregion
+
         #region Properties
+
         /// <summary>
         /// The animation the play when the page is first load.
         /// </summary>
@@ -24,6 +31,17 @@ namespace fasetto_word.Infrastructure
         /// </summary>
         public float SlideSecond { get; set; } = 0.9f;
 
+        public TViewModl ViewModel
+        {
+            get => _viewModel;
+            set
+            {
+                if (_viewModel == value) return;
+                _viewModel = value;
+                DataContext = _viewModel;
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -34,6 +52,7 @@ namespace fasetto_word.Infrastructure
             if (PageLoadAnimation == PageAnimation.None) Visibility = Visibility.Collapsed;
 
             Loaded += BasePage_Load;
+            DataContext=new TViewModl();
         }
 
         #endregion
