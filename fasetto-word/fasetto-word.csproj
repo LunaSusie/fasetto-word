@@ -54,8 +54,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\Animation\PageAnimation.cs" />
+    <Compile Include="Infrastructure\Animation\PageAnimationHelper.cs" />
+    <Compile Include="Infrastructure\Animation\StoryboardHelper.cs" />
     <Compile Include="Infrastructure\AttachedProperties\PasswordBoxProperies.cs" />
     <Compile Include="Infrastructure\BaseAttachedProperty.cs" />
+    <Compile Include="Infrastructure\BasePage.cs" />
     <Compile Include="Infrastructure\BaseValueConverter.cs" />
     <Compile Include="Infrastructure\ValueConverters\BooleanToVisiblityConverter.cs" />
     <Compile Include="Infrastructure\WindowResizer.cs" />
