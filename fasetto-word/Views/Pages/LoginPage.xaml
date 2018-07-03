@@ -8,10 +8,10 @@
       xmlns:infrastructure="clr-namespace:fasetto_word.Infrastructure"
       xmlns:attachedProperties="clr-namespace:fasetto_word.Infrastructure.AttachedProperties"
       xmlns:viewModel="clr-namespace:fasetto_word.ViewModel"
-      x:Name="Login"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LoginPage">
+      x:Name="Login"
+      Title="Login">
     <Border>
         <Grid>
             <!--登陆面板-->

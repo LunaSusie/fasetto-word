@@ -5,7 +5,11 @@
         /// <summary>
         /// login page
         /// </summary>
-        Login,
+        Login=0,
+        /// <summary>
+        /// chat page
+        /// </summary>
+        Chat=1,
 
     }
 }

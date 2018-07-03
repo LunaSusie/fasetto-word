@@ -20,8 +20,13 @@
     <Color x:Key="ForegroundLight">#ffffff</Color>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
 
+
+    <Color x:Key="WordLineBule">#45b6e5</Color>
+    <SolidColorBrush x:Key="WordLineBuleBrush" Color="{StaticResource WordLineBule}"/>
     <Color x:Key="WordBule">#3099c5</Color>
     <SolidColorBrush x:Key="WordBuleBrush" Color="{StaticResource WordBule}"/>
+    <Color x:Key="WordDarkBule">#0c6991</Color>
+    <SolidColorBrush x:Key="WordDarkBuleBrush" Color="{StaticResource WordDarkBule}"/>
 
     <Color x:Key="WordOrange">#ffa800</Color>
     <SolidColorBrush x:Key="WordOrangeBrush" Color="{StaticResource WordOrange}"/>

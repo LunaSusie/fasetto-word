@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CustomWindowAndStyles"
         xmlns:fasettoWord="clr-namespace:fasetto_word"
         xmlns:valueConverters="clr-namespace:fasetto_word.Infrastructure.ValueConverters"
+        xmlns:control="clr-namespace:fasetto_word.Views.Control"
         mc:Ignorable="d"
-        x:Name="AppWindwo"
+        x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -109,12 +109,26 @@
     </WindowChrome.WindowChrome>
     <Border Background="{StaticResource WordBuleBrush}">
         <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
             <Grid.Background>
                 <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="/Rescources/Images/Background/emoji-background.png" />
             </Grid.Background>
+
             <Frame x:Name="MainFram" 
+                   Grid.Column="1"
                    Content="{Binding CurrentPage,Converter={valueConverters:ApplicationPageValueConverter}}" 
                    Background="Transparent"/>
+
+            <!--左边菜单-->
+            <control:SideMenuControl>
+                <Button Content="test"></Button>
+            </control:SideMenuControl>
+
         </Grid>
     </Border>
 </Window>

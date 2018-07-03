@@ -12,6 +12,7 @@ namespace fasetto_word.Infrastructure.ValueConverters
             switch ((ApplicationPage)value)
             {
                 case ApplicationPage.Login: return new LoginPage();
+                case ApplicationPage.Chat:return new ChatPage();
                 default:
                     return null;
             }
