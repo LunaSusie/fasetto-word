@@ -72,15 +72,26 @@
     <Compile Include="Infrastructure\IHavePassword.cs" />
     <Compile Include="Infrastructure\Secure\SecureStringHelper.cs" />
     <Compile Include="Infrastructure\ValueConverters\BooleanToVisiblityConverter.cs" />
+    <Compile Include="Infrastructure\ValueConverters\StringRgbToBrushConverter.cs" />
     <Compile Include="Infrastructure\WindowResizer.cs" />
     <Compile Include="Models\ApplicationPage.cs" />
+    <Compile Include="ViewModel\Chat\ChatListViewModel.cs" />
+    <Compile Include="ViewModel\Design\ChatListDesignModel.cs" />
+    <Compile Include="ViewModel\Design\ChatListItemDesignModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Infrastructure\BaseViewModel.cs" />
     <Compile Include="Infrastructure\Command\RelayCommand.cs" />
     <Compile Include="Infrastructure\ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ViewModel\ChatViewModel.cs" />
+    <Compile Include="ViewModel\Chat\ChatListItemViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
+    <Compile Include="Views\Control\ChatListControl.xaml.cs">
+      <DependentUpon>ChatListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Control\ChatListItemControl.xaml.cs">
+      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Control\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
@@ -121,6 +132,14 @@
     <Page Include="Rescources\Styles\Windows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Control\ChatListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Control\ChatListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Control\SideMenuControl.xaml">
       <SubType>Designer</SubType>

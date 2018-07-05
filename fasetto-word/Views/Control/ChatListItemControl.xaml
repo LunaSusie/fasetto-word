@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="fasetto_word.Views.Control.ChatListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:fasetto_word.Views.Control"
+             xmlns:design="clr-namespace:fasetto_word.ViewModel.Design"
+             xmlns:valueConverters="clr-namespace:fasetto_word.Infrastructure.ValueConverters"
+             mc:Ignorable="d"
+             Height="60"
+             d:DesignHeight="60"
+             d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="UserControl"
+               x:Key="ControlStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border x:Name="Background" Background="{StaticResource ForegroundLightBrush}">
+                            <Grid x:Name="Container" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <!--New Message Indicator Bar-->
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <!--Profile Picture-->
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <!--Main content-->
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--New Message Indicator Bar-->
+                                <Border Background="Red"
+                                        Width="5"
+                                        HorizontalAlignment="Left"
+                                        Visibility="{Binding NewContentAvailable,Converter={valueConverters:BooleanToVisiblityConverter},ConverterParameter=true}" />
+                                <!--Profile Picture-->
+                                <Border Grid.Column="1"
+                                        Padding="8">
+                                    <Border Background="{Binding PrifilePictureRgb,Converter={valueConverters:StringRgbToBrushConverter}}"
+                                            Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}"
+                                            CornerRadius="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+                                        <TextBlock Text="{Binding Initials}"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Foreground="{StaticResource ForegroundLightBrush}"
+                                                   FontFamily="{StaticResource LoatRegular}"
+                                                   FontSize="{StaticResource FontSizeAverage}" />
+                                    </Border>
+                                </Border>
+
+                                <!--Main content-->
+                                <Border Grid.Column="2"
+                                        Padding="0 0 8 0">
+                                    <StackPanel  VerticalAlignment="Center">
+                                        <!--Name-->
+                                        <TextBlock Text="{Binding Name}"
+                                                   FontFamily="{StaticResource LoatRegular}"
+                                                   Foreground="{StaticResource WordBuleBrush}" />
+                                        <!--Message-->
+                                        <TextBlock Text="{Binding Message}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Foreground="{StaticResource ForegroundDarkBrush}"
+                                                   FontFamily="{StaticResource LoatRegular}" />
+                                    </StackPanel>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+                        <!--Hover效果-->
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}"
+                                         Value="True">
+                                <Setter Property="Background"
+                                        TargetName="Background"
+                                        Value="{StaticResource WordVeryLightBuleBrush}" />
+                            </DataTrigger>
+
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource WordVeryLightBule}"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="Container"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!--fix:鼠标移除覆盖选中-->
+                                        <ColorAnimation To="Transparent"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="Container"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="False">
+                                <Setter Property="Background"
+                                        Value="{StaticResource ForegroundDarkBrush }" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl Style="{StaticResource ControlStyle}"
+                 d:DataContext="{x:Static design:ChatListItemDesignModel.Instance}" />
+
+</UserControl>

@@ -1,40 +1,53 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CustomWindowAndStyles.Styles">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="BackgroundLight">#efefef</Color>
-    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
+    <SolidColorBrush x:Key="BackgroundLightBrush"
+                     Color="{StaticResource BackgroundLight}" />
 
     <Color x:Key="BackgroundVeryLight">#fafafa</Color>
-    <SolidColorBrush x:Key="BackgroundVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
+    <SolidColorBrush x:Key="BackgroundVeryLightBrush"
+                     Color="{StaticResource BackgroundVeryLight}" />
 
     <Color x:Key="ForegroundMain">#686868</Color>
-    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
+    <SolidColorBrush x:Key="ForegroundMainBrush"
+                     Color="{StaticResource ForegroundMain}" />
 
     <Color x:Key="ForegroundDark">#dbdbdb</Color>
-    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
+    <SolidColorBrush x:Key="ForegroundDarkBrush"
+                     Color="{StaticResource ForegroundDark}" />
 
     <Color x:Key="ForegroundVeryDark">#0000</Color>
-    <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
+    <SolidColorBrush x:Key="ForegroundVeryDarkBrush"
+                     Color="{StaticResource ForegroundVeryDark}" />
 
     <Color x:Key="ForegroundLight">#ffffff</Color>
-    <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
+    <SolidColorBrush x:Key="ForegroundLightBrush"
+                     Color="{StaticResource ForegroundLight}" />
 
-
-    <Color x:Key="WordLineBule">#45b6e5</Color>
-    <SolidColorBrush x:Key="WordLineBuleBrush" Color="{StaticResource WordLineBule}"/>
+    <Color x:Key="WordVeryLightBule">#ecf6fb</Color>
+    <SolidColorBrush x:Key="WordVeryLightBuleBrush"
+                     Color="{StaticResource WordVeryLightBule}" />
+    <Color x:Key="WordLightBule">#45b6e5</Color>
+    <SolidColorBrush x:Key="WordLightBuleBrush"
+                     Color="{StaticResource WordLightBule}" />
     <Color x:Key="WordBule">#3099c5</Color>
-    <SolidColorBrush x:Key="WordBuleBrush" Color="{StaticResource WordBule}"/>
+    <SolidColorBrush x:Key="WordBuleBrush"
+                     Color="{StaticResource WordBule}" />
     <Color x:Key="WordDarkBule">#0c6991</Color>
-    <SolidColorBrush x:Key="WordDarkBuleBrush" Color="{StaticResource WordDarkBule}"/>
+    <SolidColorBrush x:Key="WordDarkBuleBrush"
+                     Color="{StaticResource WordDarkBule}" />
 
     <Color x:Key="WordOrange">#ffa800</Color>
-    <SolidColorBrush x:Key="WordOrangeBrush" Color="{StaticResource WordOrange}"/>
+    <SolidColorBrush x:Key="WordOrangeBrush"
+                     Color="{StaticResource WordOrange}" />
 
     <Color x:Key="WordRed">#ff4747</Color>
-    <SolidColorBrush x:Key="WordRedBrush" Color="{StaticResource WordRed}"/>
+    <SolidColorBrush x:Key="WordRedBrush"
+                     Color="{StaticResource WordRed}" />
 
     <Color x:Key="WordGreen">#00c542</Color>
-    <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
+    <SolidColorBrush x:Key="WordGreenBrush"
+                     Color="{StaticResource WordGreen}" />
 
 </ResourceDictionary>

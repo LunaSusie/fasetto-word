@@ -125,8 +125,8 @@
                    Background="Transparent"/>
 
             <!--左边菜单-->
-            <control:SideMenuControl>
-                <Button Content="test"></Button>
+            <control:SideMenuControl >
+                <control:ChatListControl/>
             </control:SideMenuControl>
 
         </Grid>
