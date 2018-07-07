@@ -1,4 +1,4 @@
-﻿namespace fasetto_word.Models
+﻿namespace fasetto_word.Core.Models
 {
     public enum ApplicationPage
     {
@@ -10,6 +10,9 @@
         /// chat page
         /// </summary>
         Chat=1,
-
+        /// <summary>
+        /// Register page
+        /// </summary>
+        Register = 2,
     }
 }

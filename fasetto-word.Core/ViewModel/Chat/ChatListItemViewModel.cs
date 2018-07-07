@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
-using fasetto_word.Infrastructure;
+﻿using fasetto_word.Core.Infrastructure;
 
-namespace fasetto_word.ViewModel.Chat
+namespace fasetto_word.Core.ViewModel.Chat
 {
     /// <summary>
     /// ViewModel for each chat list item in the overview chat list

@@ -2,11 +2,13 @@
 using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using fasetto_word.Infrastructure;
-using fasetto_word.Infrastructure.Command;
-using fasetto_word.Infrastructure.Secure;
+using fasetto_word.Core.Infrastructure;
+using fasetto_word.Core.Infrastructure.Command;
+using fasetto_word.Core.Infrastructure.Helper.Secure;
+using fasetto_word.Core.Models;
+using IHavePassword = fasetto_word.Core.Models.IHavePassword;
 
-namespace fasetto_word.ViewModel
+namespace fasetto_word.Core.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
@@ -26,6 +28,8 @@ namespace fasetto_word.ViewModel
         #region Command
 
         public ICommand LoginCommand { get; private set; }
+        public ICommand RegisterCommand { get; private set; }
+        
 
         #endregion
 
@@ -33,9 +37,12 @@ namespace fasetto_word.ViewModel
 
         public LoginViewModel()
         {
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
-        }
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
 
+            RegisterCommand = new RelayCommand(async () => await RegisterAsync());
+    }
+
+      
 
         #endregion
 
@@ -44,7 +51,7 @@ namespace fasetto_word.ViewModel
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        private async Task Login(object parameter)
+        private async Task LoginAsync(object parameter)
         {
 
             await RunCommand(() => LoginIsRuning, async () =>
@@ -56,6 +63,11 @@ namespace fasetto_word.ViewModel
                 var pass = (parameter as IHavePassword)?.SecurePassword.UnSecure();
             });
 
+        }
+        private async Task RegisterAsync()
+        {
+            IoC.IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            await Task.Delay(1000);
         }
     }
 }

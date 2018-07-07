@@ -1,4 +1,5 @@
 ﻿
+using fasetto_word.Core.ViewModel;
 using fasetto_word.Infrastructure;
 using fasetto_word.ViewModel;
 

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fasettoWord="clr-namespace:fasetto_word"
+        xmlns:viewModel="clr-namespace:fasetto_word.ViewModel"
         xmlns:valueConverters="clr-namespace:fasetto_word.Infrastructure.ValueConverters"
         xmlns:control="clr-namespace:fasetto_word.Views.Control"
         mc:Ignorable="d"
@@ -121,7 +122,7 @@
 
             <Frame x:Name="MainFram" 
                    Grid.Column="1"
-                   Content="{Binding CurrentPage,Converter={valueConverters:ApplicationPageValueConverter}}" 
+                   Content="{Binding ApplicationViewModel.CurrentPage ,Source={x:Static viewModel:ViewModelLocator.Instance},Converter={valueConverters:ApplicationPageValueConverter}}" 
                    Background="Transparent"/>
 
             <!--左边菜单-->

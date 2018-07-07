@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace fasetto_word.Infrastructure
+namespace fasetto_word.Core.Models
 {
     /// <summary>
     /// a interface  for a class that can provide a SecurePassword

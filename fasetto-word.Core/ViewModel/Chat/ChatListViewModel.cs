@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using fasetto_word.Infrastructure;
+using fasetto_word.Core.Infrastructure;
 
-namespace fasetto_word.ViewModel.Chat
+namespace fasetto_word.Core.ViewModel.Chat
 {
     /// <summary>
     /// The viewmodel for chat list.

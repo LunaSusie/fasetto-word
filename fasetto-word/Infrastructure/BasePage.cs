@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
+using fasetto_word.Core.Infrastructure;
 using fasetto_word.Infrastructure.Animation;
 
 namespace fasetto_word.Infrastructure

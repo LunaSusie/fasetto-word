@@ -2,9 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using fasetto_word.Core.Infrastructure;
+using fasetto_word.Core.Infrastructure.Command;
+using fasetto_word.Core.Models;
 using fasetto_word.Infrastructure;
-using fasetto_word.Infrastructure.Command;
-using fasetto_word.Models;
 
 namespace fasetto_word.ViewModel
 {
@@ -104,11 +105,6 @@ namespace fasetto_word.ViewModel
         public int CaptionHeight { get; set; } = 42;
         public GridLength CaptionHeightGridLength => new GridLength(CaptionHeight + ResizeBorder);
 
-        #region pages
-
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
-
-        #endregion
 
         #endregion
 

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Security;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using fasetto_word.Infrastructure;
-using fasetto_word.Infrastructure.Command;
-using fasetto_word.Infrastructure.Secure;
+﻿using fasetto_word.Core.Infrastructure;
 
-namespace fasetto_word.ViewModel
+namespace fasetto_word.Core.ViewModel
 {
     public class ChatViewModel : BaseViewModel
     {

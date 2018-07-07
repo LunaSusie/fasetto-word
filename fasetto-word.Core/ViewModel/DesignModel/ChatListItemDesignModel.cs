@@ -1,6 +1,6 @@
-﻿using fasetto_word.ViewModel.Chat;
+﻿using fasetto_word.Core.ViewModel.Chat;
 
-namespace fasetto_word.ViewModel.Design
+namespace fasetto_word.Core.ViewModel.DesignModel
 {
     /// <summary>
     /// design-time for <see cref="ChatListItemViewModel"/>

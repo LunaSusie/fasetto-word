@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace fasetto_word.Infrastructure.Expression
+namespace fasetto_word.Core.Infrastructure.Helper.Expression
 {
     public static class ExpressionHelper
     {

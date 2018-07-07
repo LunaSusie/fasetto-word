@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:fasetto_word.Views.Pages"
       xmlns:infrastructure="clr-namespace:fasetto_word.Infrastructure"
       xmlns:attachedProperties="clr-namespace:fasetto_word.Infrastructure.AttachedProperties"
-      xmlns:viewModel="clr-namespace:fasetto_word.ViewModel"
+      xmlns:viewModel="clr-namespace:fasetto_word.Core.ViewModel;assembly=fasetto-word.Core"
       x:Name="Chat"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"

@@ -3,16 +3,14 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using fasetto_word.Annotations;
-using fasetto_word.Infrastructure.Expression;
+using fasetto_word.Core.Infrastructure.Helper.Expression;
 
-namespace fasetto_word.Infrastructure
+namespace fasetto_word.Core.Infrastructure
 {
     public class BaseViewModel:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
