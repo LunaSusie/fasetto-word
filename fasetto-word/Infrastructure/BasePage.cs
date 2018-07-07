@@ -18,11 +18,11 @@ namespace fasetto_word.Infrastructure
         #region Properties
 
         /// <summary>
-        /// The animation the play when the page is first load.
+        /// The animation the play when the element is first load.
         /// </summary>
         public PageAnimation PageLoadAnimation { get; set; }= PageAnimation.SlideAndFadeInFromRight;
         /// <summary>
-        /// The animation the play when page unload.
+        /// The animation the play when element unload.
         /// </summary>
         public PageAnimation PageUnloadAnimation { get; set; }= PageAnimation.SlideAndFadeOutToLeft;
         /// <summary>
@@ -59,7 +59,7 @@ namespace fasetto_word.Infrastructure
         #region Animation load and unload 
 
         /// <summary>
-        /// First this page is load. preform any required animation.
+        /// First this element is load. preform any required animation.
         /// </summary>
         /// <returns></returns>
         private async void BasePage_Load(object sender, RoutedEventArgs e)
@@ -68,7 +68,7 @@ namespace fasetto_word.Infrastructure
         }
         #endregion
         /// <summary>
-        /// animation this page in.
+        /// animation this element in.
         /// </summary>
         /// <returns></returns>
         public async Task AnimationIn()
@@ -78,13 +78,13 @@ namespace fasetto_word.Infrastructure
             switch (PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRight(SlideSecond);
+                    await this.SlideAndFadeInFromRightAsync(SlideSecond);
                     break;
             }
             return;
         }
         /// <summary>
-        /// Animation this page out.
+        /// Animation this element out.
         /// </summary>
         /// <returns></returns>
         public async Task AnimationOut()
@@ -94,7 +94,7 @@ namespace fasetto_word.Infrastructure
             switch (PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeOutToLeft:
-                    await this.SlideAndFadeOutToLeft(SlideSecond);
+                    await this.SlideAndFadeOutToLeftAsync(SlideSecond);
                     break;
             }
             return;

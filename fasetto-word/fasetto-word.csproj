@@ -60,8 +60,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Infrastructure\Animation\PageAnimation.cs" />
-    <Compile Include="Infrastructure\Animation\PageAnimationHelper.cs" />
+    <Compile Include="Infrastructure\Animation\FrameworkElementAnimationHelper.cs" />
     <Compile Include="Infrastructure\Animation\StoryboardHelper.cs" />
+    <Compile Include="Infrastructure\AttachedProperties\AnimateBaseProperty.cs" />
+    <Compile Include="Infrastructure\AttachedProperties\AnimateSlideInFromLeftProperty.cs" />
     <Compile Include="Infrastructure\AttachedProperties\ButtonProperties.cs" />
     <Compile Include="Infrastructure\AttachedProperties\PasswordBoxProperies.cs" />
     <Compile Include="Infrastructure\BaseAttachedProperty.cs" />

@@ -17,8 +17,24 @@ namespace fasetto_word.Infrastructure
 
         public static TParent Instance { get; private set; }= new TParent();
 
+        #endregion
 
-        #region Event Methods
+        #region Public Method
+        /// <summary>
+        /// The method is called when attached property of this type is changed.
+        /// </summary>
+        /// <param name="sender">The UI Element.</param>
+        /// <param name="e">The argument for the event.</param>
+        public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) {}
+
+        /// <summary>
+        /// The method is called when attached property of this type is changed,even vuale is the same.
+        /// </summary>
+        /// <param name="sender">The UI Element.</param>
+        /// <param name="value">The new value.</param>
+        public virtual void OnValueUpdated(DependencyObject sender, object value){}
+        #endregion
+
 
         #region Public Event
         /// <summary>
@@ -26,29 +42,40 @@ namespace fasetto_word.Infrastructure
         /// </summary>
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
 
-        #endregion
-        /// <summary>
-        /// The method is called when attached property of this type is changed 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) { }
-
-        #endregion
-
-
+        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
 
         #endregion
 
         #region Attached Property Definitions
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", typeof(TProperty), typeof(BaseAttachedProperty<TParent, TProperty>), new UIPropertyMetadata(default(TProperty),
-            new PropertyChangedCallback(OnValuePropertyChanged)));
-      
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", 
+            typeof(TProperty), 
+            typeof(BaseAttachedProperty<TParent, TProperty>), 
+            new UIPropertyMetadata(default(TProperty),
+                new PropertyChangedCallback(OnValuePropertyChanged),
+                new CoerceValueCallback(OnValuePropertyUpdated)
+                )
+            );
+
+        /// <summary>
+        /// Callback event when <see cref="ValueProperty"/> is update.
+        /// </summary>
+        /// <param name="d">The UI Element.</param>
+        /// <param name="value">The new value.</param>
+        /// <returns></returns>
+        private static object OnValuePropertyUpdated(DependencyObject d, object value)
+        {
+            Instance.OnValueUpdated(d, value);
+
+            Instance.ValueUpdated(d, value);
+
+            return value;
+        }
+
         /// <summary>
         /// callback event when <see cref="ValueProperty"/> is changed
         /// </summary>
-        /// <param name="d">ui element</param>
-        /// <param name="e">argument for the event</param>
+        /// <param name="d">The UI Element</param>
+        /// <param name="e">The argument for the event</param>
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             Instance.OnValueChanged(d,e);

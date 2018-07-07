@@ -7,11 +7,11 @@
         /// </summary>
         None=0,
         /// <summary>
-        /// The page slide in and fade from right.
+        /// The element slide in and fade from right.
         /// </summary>
         SlideAndFadeInFromRight = 1,
         /// <summary>
-        /// The page slide out and fade to the left.
+        /// The element slide out and fade to the left.
         /// </summary>
         SlideAndFadeOutToLeft=2
     }

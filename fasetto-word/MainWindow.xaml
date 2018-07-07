@@ -7,6 +7,7 @@
         xmlns:viewModel="clr-namespace:fasetto_word.ViewModel"
         xmlns:valueConverters="clr-namespace:fasetto_word.Infrastructure.ValueConverters"
         xmlns:control="clr-namespace:fasetto_word.Views.Control"
+        xmlns:attachedProperties="clr-namespace:fasetto_word.Infrastructure.AttachedProperties"
         mc:Ignorable="d"
         x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
@@ -87,7 +88,7 @@
                                         </StackPanel>
                                     </Grid>
 
-                                     <!--Page Content-->
+                                     <!--element Content-->
                                     <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
@@ -112,7 +113,7 @@
         <Grid>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
@@ -126,7 +127,8 @@
                    Background="Transparent"/>
 
             <!--左边菜单-->
-            <control:SideMenuControl >
+            <control:SideMenuControl Width="300"
+                                     attachedProperties:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible ,Source={x:Static viewModel:ViewModelLocator.Instance}}">
                 <control:ChatListControl/>
             </control:SideMenuControl>
 

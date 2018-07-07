@@ -13,14 +13,37 @@ namespace fasetto_word.Infrastructure.Animation
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="offset">The distance to the right to start from</param>
         /// <param name="decelerationRatio">the rate of deceleration</param>
-        public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset,
-            float decelerationRatio = 0.9f)
+        /// <param name="keepMargin">Whether to keep the element at the same width during animation.</param>
+        public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset,float decelerationRatio = 0.9f, bool keepMargin=true)
         {
             //create Margin animation from right
             var slideAnimation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = new Thickness(offset, 0, -offset, 0),
+                From = new Thickness(keepMargin ? offset:0, 0, -offset, 0),
+                To = new Thickness(0),
+                DecelerationRatio = decelerationRatio
+            };
+            //set the target property name
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            //add this to the storyboard
+            storyboard.Children.Add(slideAnimation);
+        }
+        /// <summary>
+        /// Add a slide from right animation on the storyboard
+        /// </summary>
+        /// <param name="storyboard">The storyboard to add animation</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="offset">The distance to the left to start from</param>
+        /// <param name="decelerationRatio">the rate of deceleration</param>
+        /// <param name="keepMargin">Whether to keep the element at the same width during animation.</param>
+        public static void AddSlideFromLeft(this Storyboard storyboard, float seconds, double offset,float decelerationRatio = 0.9f,bool keepMargin=true)
+        {
+            //create Margin animation from right
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
                 To = new Thickness(0),
                 DecelerationRatio = decelerationRatio
             };
@@ -34,17 +57,17 @@ namespace fasetto_word.Infrastructure.Animation
         /// </summary>
         /// <param name="storyboard">The storyboard to add animation</param>
         /// <param name="seconds">The time the animation will take</param>
-        /// <param name="offset">The distance to the right to start from</param>
+        /// <param name="offset">The distance to the left to start from</param>
         /// <param name="decelerationRatio">the rate of deceleration</param>
-        public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset,
-            float decelerationRatio = 0.9f)
+        /// <param name="keepMargin">Whether to keep the element at the same width during animation.</param>
+        public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin=true)
         {
             //create Margin animation from right
             var slideAnimation = new ThicknessAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
                 From = new Thickness(0),
-                To = new Thickness(-offset, 0, offset, 0),
+                To = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
                 DecelerationRatio = decelerationRatio
             };
             //set the target property name
@@ -52,6 +75,30 @@ namespace fasetto_word.Infrastructure.Animation
             //add this to the storyboard
             storyboard.Children.Add(slideAnimation);
         }
+        /// <summary>
+        /// Add a slide to right animation on the storyboard
+        /// </summary>
+        /// <param name="storyboard">The storyboard to add animation</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="offset">The distance to the right to start from</param>
+        /// <param name="decelerationRatio">the rate of deceleration</param>
+        /// <param name="keepMargin">Whether to keep the element at the same width during animation.</param>
+        public static void AddSlideToRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin=true)
+        {
+            //create Margin animation from right
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = new Thickness(0),
+                To = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
+                DecelerationRatio = decelerationRatio
+            };
+            //set the target property name
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            //add this to the storyboard
+            storyboard.Children.Add(slideAnimation);
+        }
+
         /// <summary>
         /// Add a fede in animation on the storyboard
         /// </summary>
